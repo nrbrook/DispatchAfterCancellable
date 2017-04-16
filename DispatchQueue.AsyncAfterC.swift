@@ -45,7 +45,7 @@ extension DispatchQueue {
 }
 
 extension DispatchTime {
-    init(timeIntervalSinceNow timeInterval: TimeInterval) {
-        self.init(uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds + UInt64(timeInterval * TimeInterval(NSEC_PER_SEC)))
+    static func fromNow(time: TimeInterval) -> DispatchTime {
+        return DispatchTime.now() + time
     }
 }
